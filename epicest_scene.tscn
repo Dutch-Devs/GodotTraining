@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://nesyoextsck"]
+
+[ext_resource type="Script" path="res://src/Tank/Tank.cs" id="1_bybx7"]
+[ext_resource type="Script" path="res://src/Player/PlayerControlledTank.cs" id="1_jbtt3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk0ji"]
+size = Vector2(63, 64)
+
+[sub_resource type="Gradient" id="Gradient_q3x1t"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ilrm"]
+gradient = SubResource("Gradient_q3x1t")
+
+[node name="EPICEST SCENE" type="Node2D"]
+
+[node name="map" type="StaticBody2D" parent="."]
+position = Vector2(-77, 35)
+scale = Vector2(2.11837, 2.9084)
+
+[node name="bestShapeEver" type="Polygon2D" parent="map"]
+polygon = PackedVector2Array(-153, -114, 198, -66, 35, 117, -175, 108, -178, -43, -38, -2, 7.23077, -3.9653, -2.61539, 17.1672, -68, 40, -51, 78, 9, 71, 58, 32, 87, -40, 51, -64, -58, -59)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map"]
+polygon = PackedVector2Array(-153, -114, 198, -66, 35, 117, -175, 108, -178, -43, -38, -2, 7.23077, -3.9653, -2.61539, 17.1672, -68, 40, -51, 78, 9, 71, 58, 32, 87, -40, 51, -64, 0.982605, -61.7056, -58, -59)
+
+[node name="PlayerTank" type="CharacterBody2D" parent="."]
+script = ExtResource("1_bybx7")
+Controller = ExtResource("1_jbtt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTank"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_uk0ji")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerTank"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerTank"]
+texture = SubResource("GradientTexture2D_8ilrm")
